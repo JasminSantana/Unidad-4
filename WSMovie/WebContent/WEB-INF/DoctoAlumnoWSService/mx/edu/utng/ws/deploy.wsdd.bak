@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from DoctoAlumnoWSService WSDL service -->
+
+  <service name="DoctoAlumnoWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="DoctoAlumnoWSService"/>
+      <parameter name="schemaQualified" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="DoctoAlumnoWS"/>
+      <parameter name="className" value="mx.edu.utng.ws.DoctoAlumnoWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="DoctoAlumnoWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getDoctoAlumnos" qname="operNS:getDoctoAlumnos" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getDoctoAlumnosReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:DoctoAlumno" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+      </operation>
+      <operation name="updateDocto" qname="operNS:updateDocto" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:updateDoctoReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:docto" xmlns:pns="http://ws.utng.edu.mx" type="tns:DoctoAlumno" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="removeDocto" qname="operNS:removeDocto" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:removeDoctoReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addDocto" qname="operNS:addDocto" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:addDoctoReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:docto" xmlns:pns="http://ws.utng.edu.mx" type="tns:DoctoAlumno" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="getDoctobyId" qname="operNS:getDoctobyId" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getDoctobyIdReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:DoctoAlumno" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getDoctoAlumnos addDocto updateDocto removeDocto getDoctobyId"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.utng.edu.mx"
+        qname="ns:DoctoAlumno"
+        type="java:mx.edu.utng.ws.DoctoAlumno"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

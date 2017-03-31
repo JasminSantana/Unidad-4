@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getDoctoAlumnos">
+    <complexType/>
+   </element>
+   <element name="getDoctoAlumnosResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getDoctoAlumnosReturn" type="impl:DoctoAlumno"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="DoctoAlumno">
+    <sequence>
+     <element name="activo" nillable="true" type="xsd:string"/>
+     <element name="dateDevolution" nillable="true" type="xsd:string"/>
+     <element name="dateTest" nillable="true" type="xsd:string"/>
+     <element name="document" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="note" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="updateDocto">
+    <complexType>
+     <sequence>
+      <element name="docto" type="impl:DoctoAlumno"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateDoctoResponse">
+    <complexType>
+     <sequence>
+      <element name="updateDoctoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeDocto">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeDoctoResponse">
+    <complexType>
+     <sequence>
+      <element name="removeDoctoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addDocto">
+    <complexType>
+     <sequence>
+      <element name="docto" type="impl:DoctoAlumno"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addDoctoResponse">
+    <complexType>
+     <sequence>
+      <element name="addDoctoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDoctobyId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDoctobyIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getDoctobyIdReturn" type="impl:DoctoAlumno"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getDoctoAlumnosRequest">
+
+      <wsdl:part element="impl:getDoctoAlumnos" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeDoctoRequest">
+
+      <wsdl:part element="impl:removeDocto" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDoctoResponse">
+
+      <wsdl:part element="impl:updateDoctoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addDoctoResponse">
+
+      <wsdl:part element="impl:addDoctoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDoctobyIdRequest">
+
+      <wsdl:part element="impl:getDoctobyId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addDoctoRequest">
+
+      <wsdl:part element="impl:addDocto" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDoctoAlumnosResponse">
+
+      <wsdl:part element="impl:getDoctoAlumnosResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDoctoRequest">
+
+      <wsdl:part element="impl:updateDocto" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeDoctoResponse">
+
+      <wsdl:part element="impl:removeDoctoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDoctobyIdResponse">
+
+      <wsdl:part element="impl:getDoctobyIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="DoctoAlumnoWS">
+
+      <wsdl:operation name="getDoctoAlumnos">
+
+         <wsdl:input message="impl:getDoctoAlumnosRequest" name="getDoctoAlumnosRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDoctoAlumnosResponse" name="getDoctoAlumnosResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDocto">
+
+         <wsdl:input message="impl:updateDoctoRequest" name="updateDoctoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateDoctoResponse" name="updateDoctoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeDocto">
+
+         <wsdl:input message="impl:removeDoctoRequest" name="removeDoctoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeDoctoResponse" name="removeDoctoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addDocto">
+
+         <wsdl:input message="impl:addDoctoRequest" name="addDoctoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addDoctoResponse" name="addDoctoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDoctobyId">
+
+         <wsdl:input message="impl:getDoctobyIdRequest" name="getDoctobyIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDoctobyIdResponse" name="getDoctobyIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DoctoAlumnoWSSoapBinding" type="impl:DoctoAlumnoWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getDoctoAlumnos">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDoctoAlumnosRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDoctoAlumnosResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDocto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateDoctoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateDoctoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeDocto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeDoctoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeDoctoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addDocto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addDoctoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addDoctoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDoctobyId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDoctobyIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDoctobyIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DoctoAlumnoWSService">
+
+      <wsdl:port binding="impl:DoctoAlumnoWSSoapBinding" name="DoctoAlumnoWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMovie/services/DoctoAlumnoWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
